@@ -200,6 +200,17 @@ function App() {
                     {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                 </button>
                 <button onClick={() => {
+                    if (!document.fullscreenElement) {
+                        document.documentElement.requestFullscreen();
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        }
+                    }
+                }} style={{ marginRight: '10px' }}>
+                    <Maximize size={20} />
+                </button>
+                <button onClick={() => {
                     if (token) setViewMode('admin');
                     else setViewMode('login');
                 }}>

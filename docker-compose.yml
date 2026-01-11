@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./photos:/app/photos
+    environment:
+      - ADMIN_USER=admin
+      # Leave ADMIN_PASS empty to auto-generate, or set it here
